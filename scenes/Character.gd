@@ -39,14 +39,14 @@ func _physics_process(delta):
 			motion.y = -jump_force
 			jump_number -= 1
 			if not is_on_floor() and nextToRightWall():
-				motion.x -= wallJump
-				motion.y -= jumpWall
+				motion.x -= wallJump * delta
+				motion.y -= jumpWall * delta
 			if not is_on_floor() and nextToLeftWall():
-				motion.x += wallJump
-				motion.y -= jumpWall
+				motion.x += wallJump * delta 
+				motion.y -= jumpWall * delta
 				
 		if nextToWall() and motion.y > 30:
-			motion.y = 30
+			motion.y = 30 * delta
 			if nextToRightWall():
 				sprite.flip_h = true
 				sprite.play("slideWall")
@@ -78,6 +78,7 @@ func nextToLeftWall():
 	
 func dash():
 	max_speed = 1400
+
 	$Timer.start()
 
 func _on_Timer_timeout():
