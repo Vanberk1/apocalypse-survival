@@ -18,7 +18,7 @@ func _on_character_death(controller):
 		$RespawnTimer2.start()
 		$HUD.player_1_point()
 
-func _on_RespawnTimer_timeout():
+func _on_RespawnTimer1_timeout():
 	var new_char = Character.instance()
 	new_char.player_controller = "player 1"
 	new_char.global_position = spawn_point.global_position
