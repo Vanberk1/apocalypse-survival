@@ -240,5 +240,5 @@ text = "0 - 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="timeout" from="RespawnTimer1" to="." method="_on_RespawnTimer_timeout"]
+[connection signal="timeout" from="RespawnTimer1" to="." method="_on_RespawnTimer1_timeout"]
 [connection signal="timeout" from="RespawnTimer2" to="." method="_on_RespawnTimer2_timeout"]
