@@ -3,11 +3,11 @@
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
 
-[sub_resource type="DynamicFontData" id=20]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/NESCyrillic.ttf"
 
-[sub_resource type="DynamicFont" id=21]
-font_data = SubResource( 20 )
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -73,7 +73,7 @@ margin_bottom = 12.0
 [node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
 margin_right = 6.0
 margin_bottom = 12.0
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
@@ -81,7 +81,7 @@ text = ">"
 margin_left = 10.0
 margin_right = 57.0
 margin_bottom = 12.0
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Single"
 
@@ -98,7 +98,7 @@ margin_bottom = 12.0
 margin_right = 8.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 8, 0 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
@@ -107,7 +107,7 @@ margin_left = 12.0
 margin_right = 59.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 47, 0 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Coop "
 
@@ -124,7 +124,7 @@ margin_bottom = 12.0
 margin_right = 8.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 8, 0 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = ">"
 
@@ -133,6 +133,6 @@ margin_left = 12.0
 margin_right = 59.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 47, 0 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Exit"
