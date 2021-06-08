@@ -15,4 +15,4 @@ func _on_AttackAnimation_animation_finished():
 func _on_AttackArea_body_entered(body):
 	print(body.name)
 	if body.is_in_group("character"):
-		body.queue_free()
+		body.death()
