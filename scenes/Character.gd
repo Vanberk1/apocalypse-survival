@@ -17,6 +17,7 @@ var jumpWall = 150
 var wallJump = 60
 
 var can_attack = true
+var dashing = false
 
 var direction = Vector2.RIGHT
 var motion = Vector2.ZERO
@@ -132,6 +133,7 @@ func nextToLeftWall():
 	
 func dash():
 	max_speed = 1700
+	dashing = true
 	$Timer.start()
 
 func attack():
@@ -145,11 +147,13 @@ func attack():
 #	print("attack", direction)
 
 func death():
-	emit_signal("death", player_controller)
-	queue_free()
+	if !dashing:
+		emit_signal("death", player_controller)
+		queue_free()
 
 func _on_Timer_timeout():
 	max_speed = 90
+	dashing = false
 
 func _on_AttackTimer_timeout():
 	can_attack = true

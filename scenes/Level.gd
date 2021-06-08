@@ -13,9 +13,10 @@ func _on_character_death(controller):
 	print(controller)
 	if controller == "player 1":
 		$RespawnTimer1.start()
+		$HUD.player_2_point()
 	else:
 		$RespawnTimer2.start()
-
+		$HUD.player_1_point()
 
 func _on_RespawnTimer_timeout():
 	var new_char = Character.instance()
