@@ -1,0 +1,138 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=2]
+
+[sub_resource type="DynamicFontData" id=20]
+font_path = "res://assets/NESCyrillic.ttf"
+
+[sub_resource type="DynamicFont" id=21]
+font_data = SubResource( 20 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0.231373, 0.00392157, 0.105882, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer"]
+margin_left = 13.0
+margin_top = 46.0
+margin_right = 307.0
+margin_bottom = 134.0
+custom_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_right = 294.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 294.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Apocalypse survival"
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 294.0
+margin_bottom = 88.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 117.0
+margin_right = 176.0
+margin_bottom = 44.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 59.0
+margin_bottom = 12.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_left = 1.0
+margin_right = 58.0
+margin_bottom = 12.0
+
+[node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 6.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 10.0
+margin_right = 57.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Single"
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 16.0
+margin_right = 59.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_right = 59.0
+margin_bottom = 12.0
+
+[node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 8, 0 )
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 12.0
+margin_right = 59.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 47, 0 )
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Coop "
+
+[node name="CenterContainer3" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 32.0
+margin_right = 59.0
+margin_bottom = 44.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_right = 59.0
+margin_bottom = 12.0
+
+[node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 8, 0 )
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_left = 12.0
+margin_right = 59.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 47, 0 )
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Exit"

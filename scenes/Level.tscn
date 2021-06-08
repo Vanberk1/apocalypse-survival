@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scenes/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/tiles.png" type="Texture" id=2]
-[ext_resource path="res://scenes/Level.gd" type="Script" id=3]
 [ext_resource path="res://scenes/HUD.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -194,7 +193,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/z_index = 0
 
 [node name="Level" type="Node2D"]
-script = ExtResource( 3 )
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -235,5 +233,6 @@ text = "0 - 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="timeout" from="RespawnTimer1" to="." method="_on_RespawnTimer_timeout"]
 [connection signal="timeout" from="RespawnTimer2" to="." method="_on_RespawnTimer2_timeout"]
