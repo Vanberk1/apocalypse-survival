@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/attacks/AttackArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/herochar_spritesheet(new).png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 176, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 176, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 176, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 176, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6, 6 )
+
+[node name="PunchAttackArea" instance=ExtResource( 1 )]
+atk_delay = 0.5
+
+[node name="AttackAnimation" parent="." index="0"]
+frames = SubResource( 5 )
+animation = "attack"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 6 )

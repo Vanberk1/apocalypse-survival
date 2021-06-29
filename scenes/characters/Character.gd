@@ -4,6 +4,7 @@ signal death
 
 const ShortAttack = preload("res://scenes/attacks/ShortAttackArea.tscn")
 const LongAttack = preload("res://scenes/attacks/LongAttackArea.tscn")
+const PunchAttack = preload("res://scenes/attacks/PunchAttackArea.tscn")
 
 export (String, "none", "player 1", "player 2") var player_controller
 
@@ -21,7 +22,7 @@ var wallJump = 60
 var can_attack = true
 var dashing = false
 var respawning = false
-var atk_type = "long_atk"
+var atk_type = "punch"
 var actual_attack
 
 var direction = Vector2.RIGHT
@@ -144,21 +145,29 @@ func attack():
 	sprite.play("attack")
 	var new_attack
 	match atk_type:
-		"short_atk":
+		"punch":
+			new_attack = PunchAttack.instance()
+			new_attack.dir = direction
+			add_child(new_attack)
+			new_attack.global_position = global_position + direction * 10
+			new_attack.character_controller = player_controller
+			$AttackTimer.wait_time = new_attack.atk_delay
+		"knife":
 			new_attack = ShortAttack.instance()
 			new_attack.dir = direction
 			add_child(new_attack)
 			new_attack.global_position = global_position + direction * 14
 			new_attack.character_controller = player_controller
-		"long_atk":
+			$AttackTimer.wait_time = new_attack.atk_delay
+		"pipe":
 			new_attack = LongAttack.instance()
 			new_attack.dir = direction
 			add_child(new_attack)
 			new_attack.global_position = global_position + direction * 14
 			new_attack.global_position.y -= 8
 			new_attack.character_controller = player_controller
+			$AttackTimer.wait_time = new_attack.atk_delay
 	can_attack = false
-	$AttackTimer.wait_time = new_attack.atk_delay
 	$AttackTimer.start()
 #	print("attack", direction)
 
@@ -166,6 +175,10 @@ func death(killer_controller):
 	if !dashing:
 		emit_signal("death", player_controller, killer_controller)
 		queue_free() 
+
+func set_weapon(weapon_type):
+	print(weapon_type)
+	atk_type = weapon_type
 
 func _on_DashTimer_timeout():
 	max_speed = 90

@@ -202,6 +202,8 @@ texture = ExtResource( 4 )
 
 [node name="Characters" type="Node2D" parent="."]
 
+[node name="Objects" type="Node2D" parent="."]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 19 )
 cell_size = Vector2( 16, 16 )
