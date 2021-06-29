@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 signal death
 
-const AttackArea = preload("res://scenes/attacks/AttackArea.tscn")
+const ShortAttack = preload("res://scenes/attacks/ShortAttackArea.tscn")
+const LongAttack = preload("res://scenes/attacks/LongAttackArea.tscn")
 
 export (String, "none", "enemy 1", "enemy 2") var player_controller
 
@@ -18,6 +19,7 @@ var wallJump = 60
 
 var can_attack = true
 var dashing = false
+var atk_type = "short_atk"
 
 var direction = Vector2.RIGHT
 var motion = Vector2.ZERO
@@ -145,7 +147,7 @@ func dash():
 
 func attack():
 	sprite.play("attack")
-	var new_attack = AttackArea.instance()
+	var new_attack = ShortAttack.instance()
 	new_attack.dir = direction
 	new_attack.character_controller = player_controller
 	add_child(new_attack)

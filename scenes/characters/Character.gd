@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 signal death
 
-const AttackArea = preload("res://scenes/attacks/AttackArea.tscn")
+const ShortAttack = preload("res://scenes/attacks/ShortAttackArea.tscn")
+const LongAttack = preload("res://scenes/attacks/LongAttackArea.tscn")
 
 export (String, "none", "player 1", "player 2") var player_controller
 
@@ -20,6 +21,8 @@ var wallJump = 60
 var can_attack = true
 var dashing = false
 var respawning = false
+var atk_type = "long_atk"
+var actual_attack
 
 var direction = Vector2.RIGHT
 var motion = Vector2.ZERO
@@ -139,12 +142,23 @@ func dash():
 
 func attack():
 	sprite.play("attack")
-	var new_attack = AttackArea.instance()
-	new_attack.dir = direction
-	new_attack.character_controller = player_controller
-	add_child(new_attack)
-	new_attack.global_position = global_position + direction * 14
+	var new_attack
+	match atk_type:
+		"short_atk":
+			new_attack = ShortAttack.instance()
+			new_attack.dir = direction
+			add_child(new_attack)
+			new_attack.global_position = global_position + direction * 14
+			new_attack.character_controller = player_controller
+		"long_atk":
+			new_attack = LongAttack.instance()
+			new_attack.dir = direction
+			add_child(new_attack)
+			new_attack.global_position = global_position + direction * 14
+			new_attack.global_position.y -= 8
+			new_attack.character_controller = player_controller
 	can_attack = false
+	$AttackTimer.wait_time = new_attack.atk_delay
 	$AttackTimer.start()
 #	print("attack", direction)
 
