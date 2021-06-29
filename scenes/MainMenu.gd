@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const Level = preload("res://scenes/Level.tscn")
+const Level00 = preload("res://scenes/levels/Level00.tscn")
 
 onready var selector_one = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var selector_two = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
@@ -11,21 +11,22 @@ var current_selection = 0
 func _ready():
 	set_current_selection(0)
 
-func _process(delta):
-		if Input.is_action_just_pressed("ui_down") and current_selection < 2:
+func _input(event):
+		if event.is_action_pressed("ui_down") and current_selection < 2:
 			current_selection += 1
 			set_current_selection(current_selection)
-		elif Input.is_action_just_pressed("ui_up") and current_selection > 0:
+		elif event.is_action_pressed("ui_up") and current_selection > 0:
 			current_selection -= 1
 			set_current_selection(current_selection)
-		elif Input.is_action_just_pressed("ui_accept"):
+		elif event.is_action_pressed("ui_accept"):
 			handle_selection(current_selection)
 			
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		print("Add single player")
+		get_parent().add_child(Level00.instance())
+		queue_free()
 	elif _current_selection == 1:
-		get_parent().add_child(Level.instance())
+		get_parent().add_child(Level00.instance())
 		queue_free()
 	elif _current_selection == 2:
 		get_tree().quit()
